@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sahel: "sahel";
+    --font-sahel-Light: "sahel light";
+    --font-sahel-SemiBold: "sahel SemiBold";
+    --font-sahel-bold: "sahel bold";
+}
+
+@layer utility {
+    .container{
+        @apply w-9/10 mx-auto
+    }
+
+    .bg-gradiant-main {
+        @apply bg-gradient-to-r from-[#ff8904] to-[#ff6900]
+    }
+
+    .bg-gradiant-orange:hover {
+        @apply bg-gradient-to-r from-[#ff8904] to-[#ff6900]
+    }
+
+    nav a.active {
+        @apply text-orange-500
+    }
+
+    nav a.active::after {
+        @apply content-[''] border-b w-full h-1 absolute -bottom-9.5 rounded-full bg-gradient-to-r from-[#ff8904] to-[#ff6900]
+    }
+
+    .bg_gradient_orange_main{
+        @apply bg-linear-to-r from-[#FF8904] to-[#FF6900]
+    }
+
+}
+
+@layer base {
+    @font-face {
+        font-family:"sahel light";
+        src: url("../font/Sahel-Light-FD.woff2");
+    }
+    @font-face {
+        font-family: "sahel";
+        src: url("../font/Sahel-FD.woff2");
+    }
+
+    @font-face {
+        font-family: "sahel SemiBold";
+        src: url("../font/Sahel-SemiBold-FD.woff2");
+    }
+
+    @font-face {
+        font-family: "sahel bold";
+        src: url("../font/Sahel-Bold-FD.woff2");
+    }
+
+    nav a.nav-link-line:hover::after {
+        @apply content-[""] w-full h-1 absolute -bottom-9.5  rounded-full bg-linear-to-r from-[#FF8904] to-[#FF6900];
+    }
+}
+
+.span-prof:hover {
+    padding-right: 7px;
+    transition-duration: 700ms;
+}
+
+@custom-variant child "&>*"
+@custom-variant child-hover "&>*:hover"
+@custom-variant child-li "&>li"

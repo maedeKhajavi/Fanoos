@@ -1,0 +1,107 @@
+<!doctype html>
+<html dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="styles/app.css" />
+    <link rel="stylesheet" href="styles/custom.css" />
+</head>
+
+<body class="bg-[#F7F9FC] overflow-hidden">
+    <!-- start login form -->
+    <section class="min-h-screen bg-[#F7F9FC] flex items-center justify-center py-4 px-2">
+        <div id="page" class="bg-white w-[1200px] h-[650px] overflow-hidden rounded-[40px] flex shadow-lg transition-opacity duration-500 ease-in-out">
+            <div class="relative hidden md:block h-full w-[500px]">
+                <div class="absolute inset-0 bg-[url('../imgs/Login2.png')] bg-cover bg-top bg-no-repeat">
+                    <div class="max-h-full absolute inset-0 bg-gradient-to-t from-[rgba(60,83,211,0.6)] via-[rgba(45,58,129,0.6)] to-transparent flex flex-col items-center justify-center">
+                        <div class="flex flex-col items-center text-white text-center">
+                            <div class="w-20 h-20 rounded-2xl bg-white/30 backdrop-blur-md shadow-lg flex items-center justify-center">
+                                <svg width="40" height="38" viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 38V32H22V38H18ZM0 20V16H6V20H0ZM34 20V16H40V20H34ZM32 33.8L27.8 29.6L30.6 26.8L34.8 31L32 33.8ZM8 33.8L5.2 31L9.4 26.8L12.2 29.6L8 33.8ZM20 28C17.2333 28 14.875 27.025 12.925 25.075C10.975 23.125 10 20.7667 10 18C10 16.4 10.3583 14.9083 11.075 13.525C11.7917 12.1417 12.7667 10.9667 14 10V0H26V10C27.2333 10.9667 28.2083 12.1417 28.925 13.525C29.6417 14.9083 30 16.4 30 18C30 20.7667 29.025 23.125 27.075 25.075C25.125 27.025 22.7667 28 20 28ZM18 8.2C18.3333 8.13333 18.6667 8.08333 19 8.05C19.3333 8.01667 19.6667 8 20 8C20.3333 8 20.6667 8.01667 21 8.05C21.3333 8.08333 21.6667 8.13333 22 8.2V4H18V8.2Z" fill="currentColor" />
+                                </svg>
+                            </div>
+
+                            <span class="mt-6 text-2xl font-bold text-[32px] leading-[48px]">
+                                یادگیری هوشمندانه
+                            </span>
+
+                            <span class="mt-3 max-w-md text-center text-[18px] w-8/10">
+                                با فانوس، مسیر یادگیری شما روشن، پیوسته و
+                                بدون فراموشی خواهد بود.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="h-full w-[700px] bg-white pt-[130px] py-[80px] px-[40px] md:mt-[27px] md:py-[115px] md:px-[90px] flex justify-center items-center">
+                <div class=" w-full h-full">
+                    <div class="text-black">
+                        <h5 class="text-xl font-bold text-[32px]">
+                            ورود به حساب
+                        </h5>
+                        <span class="text-[16px] text-gray-700 w-full lg:w-8/10 mt-[5px] pb-[40px] inline-block">برای
+                            شروع یادگیری و مرور روزانه، شماره موبایل
+                            خود را وارد کنید.</span>
+                    </div>
+                    <div class="w-full">
+                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-700">
+                            شماره موبایل
+                        </label>
+
+                        <div class="relative">
+                            <span class="absolute right-4 top-1/2 -translate-y-1/2">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="text-gray-400">
+                                    <path
+                                        d="M7 2H17C18.1 2 19 2.9 19 4V20C19 21.1 18.1 22 17 22H7C5.9 22 5 21.1 5 20V4C5 2.9 5.9 2 7 2Z"
+                                        stroke="currentColor" stroke-width="2" />
+                                    <circle cx="12" cy="18" r="1" fill="currentColor" />
+                                </svg>
+                            </span>
+
+                            <input id="phone" type="text" inputmode="numeric" placeholder="09-- --- ----" dir="ltr" class="w-full h-14 pr-14 pl-5 rounded-xl bg-[#F7F9FC] border border-gray-50 focus:border-blue-500 focus:outline-none text-lg tracking-wider" />
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <buttond class="bg-[#4352A5] text-white flex justify-center items-center w-full p-[14px] rounded-[9999px] mt-7 my-5 font-medium text-sm leading-5 tracking-[0.28px] text-center align-middle">
+                            <a href="varify.html" id="btnSub" class=" flex justify-center items-center"> 
+                                <svg class="ml-1.5" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.13125 6.75H0V5.25H9.13125L4.93125 1.05L6 0L12 6L6 12L4.93125 10.95L9.13125 6.75Z" fill="white" />
+                                </svg>
+                                دریافت کد تایید
+                            </a>
+                        </buttond>
+                    </div>
+                    <div class="pt-[20px]">
+                        <p class="font-medium text-sm leading-5 text-center align-middle tracking-[0.28px]">با ورود به
+                            سایت 
+                            <a href="#" class=" font-medium text-sm text-[#4352A5] text-center underline decoration-solid decoration-0">
+                                قوانین و مقررات
+                            </a>
+                            فانوس را می‌پذیرم .
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end login form -->
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

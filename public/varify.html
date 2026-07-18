@@ -1,0 +1,149 @@
+<!doctype html>
+<html dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Varify</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="styles/app.css" />
+    <link rel="stylesheet" href="styles/custom.css" />
+</head>
+
+<body>
+    <!-- start varify form -->
+    <section class="min-h-screen bg-[#F7F9FC] flex items-center justify-center py-4 px-2">
+        <div id="page" class="bg-white w-[1200px] h-[650px] overflow-hidden rounded-[40px] flex shadow-lg transition-opacity duration-500 ease-in-out">
+            <div class="hidden md:flex w-1/2 relative overflow-hidden rounded-r-[40px] bg-[#4352A5] items-center justify-center">
+                <!-- start blur parts-->
+
+                <!-- Blur Bottom Right -->
+                <div class="absolute -bottom-30 -right-24 w-50 h-60 bg-[#ffffff33] opacity-25 rounded-full"></div>
+                <!-- Blur Square Bottom -->
+                <div class="absolute bottom-14 left-16 w-40 h-40 bg-[#9FF79F33] blur-xl rounded-sm"></div>
+                <!-- Blur Square Top -->
+                <div class="absolute top-14 right-14 w-28 h-28 bg-[#ffffff33] blur-xl rounded-full"></div>
+
+                <!-- end blur parts-->
+
+                <div class="relative z-10 flex flex-col items-center">
+                    <div
+                        class="relative w-[266px] h-[266px] rounded-[32px] bg-[#8fa5ff41] rotate-3 shadow mb-1.5 border border-[#FFFFFF33]">
+                        <div
+                            class="absolute inset-7 rounded-lg bg-[#183c6078] flex items-center justify-center text-white text-sm">
+                            <img src="imgs/varify.jpg" alt="varify" class="shadow-2xl" />
+                        </div>
+                        <div
+                            class="absolute -top-7 -right-6 w-[64px] h-[80px] bg-white border border-[#E0E3E6] rounded-lg shadow-lg flex items-center justify-center rotate-[15deg]">
+                            <i class="ri-checkbox-circle-line text-[#4352A5] text-[30px] rotate-[13deg]"></i>
+                        </div>
+                        <div
+                            class="absolute -bottom-4 -left-8 h-[64px] w-[80px] bg-white rounded-lg shadow-lg flex items-center justify-center -rotate-6">
+                            <i class="ri-graduation-cap-line text-[#126D27] text-[27px] -rotate-3"></i>
+                        </div>
+                    </div>
+                    <h2 class="text-[#ffffff] my-2 font-bold text-[32px] leading-[48px] tracking-[0] text-center">
+                        فانوس
+                    </h2>
+                    <p class="text-[#BAC3FF] font-normal text-[18px] leading-[32px] tracking-[0] text-center">
+                        مسیر یادگیری شما، روشن و پیوسته.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="h-full flex-1 bg-white py-[50px] px-10 md:py-[90px] sm:px-16 flex flex-col items-center justify-center w-1/2">
+                <div class="flex justify-center">
+                    <div
+                        class="w-15 h-15 bg-[#5C6BC033] rounded-full flex items-center justify-center text-[#4352A5] mb-[15px]">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h1 class="font-bold text-[32px] leading-[48px] tracking-normal text-center align-middle mb-[4px]">
+                        تایید کد پیامکی
+                    </h1>
+                    <p class="text-gray-500 text-sm mb-[25px]">
+                        کد تایید ارسال شده به شماره موبایل خود را وارد کنید.
+                    </p>
+                </div>
+
+                <div class="sm:w-6/10 md:w-8/10">
+                    <div class="flex flex-row-reverse gap-2.5 justify-between" id="otp-container">
+                        <input type="text" maxlength="1" class="otp-input bg-[#C6C5D3] text-[#767683] h-[38px] w-[11px] rounded-[4px] border border-[#C6C5D3] mb-4"
+                            id="otp-1" placeholder="-" />
+                        <input type="text" maxlength="1"
+                            class="otp-input bg-[#C6C5D3] text-[#767683] h-[38px] w-[11px] rounded-[4px] border border-[#C6C5D3] mb-4"
+                            id="otp-2" placeholder="-" />
+                        <input type="text" maxlength="1"
+                            class="otp-input bg-[#C6C5D3] text-[#767683] h-[38px] w-[11px] rounded-[4px] border border-[#C6C5D3] mb-4"
+                            id="otp-3" placeholder="-" />
+                        <input type="text" maxlength="1"
+                            class="otp-input bg-[#C6C5D3] text-[#767683] h-[38px] w-[11px] rounded-[4px] border border-[#C6C5D3] mb-4"
+                            id="otp-4" placeholder="-" />
+                        <input type="text" maxlength="1"
+                            class="otp-input bg-[#C6C5D3] text-[#767683] h-[38px] w-[11px] rounded-[4px] border border-[#C6C5D3] mb-4"
+                            id="otp-5" placeholder="-" />
+                    </div>
+
+                    <button id="btn-submit"
+                        class="w-full bg-[#4352A5] hover:bg-[#ffffff] hover:text-[#4352A5] transition-colors text-white font-medium py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 border border-[#4352A5] hover:border hover:border-blue-950">
+                        <svg class="ml-1.5 hover:text-[#4352A5]"  width="12" height="12" viewBox="0 0 12 12" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.13125 6.75H0V5.25H9.13125L4.93125 1.05L6 0L12 6L6 12L4.93125 10.95L9.13125 6.75Z" fill="CurrentColor" />
+                        </svg>
+                        <a href="../public/Dashboord.html"><span>تایید و ورود</span></a>
+                    </button>
+                </div>
+
+                <div class="text-center space-y-4 mt-6">
+                    <div class="text-xs text-[#454651]">
+                        ارسال مجدد کد تا
+                        <span id="auth-timer" class="font-bold text-[#4352A5]">
+                            01:59
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col gap-2.5 text-xs font-medium">
+                        <button id="btn-resend"
+                            class="text-blue-800 hover:text-blue-900 flex items-center justify-center gap-1.5 opacity-50 cursor-not-allowed"
+                            disabled>
+                            <a href="" id="refCode" class="hidden" onclick="refCode()">ارسال مجدد کد</a>
+                        </button>
+                        <a href="Login.html"
+                            class="text-[#454651] hover:text-gray-900 transition-colors flex group w-50 items-center justify-center">
+                            <svg width="10" height="14" viewBox="0 0 14 14" fill="none"
+                                class="ml-1 transition-transform duration-300 group-hover:translate-x-2"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.1458 7.5H0V5.83333H10.1458L5.47917 1.16667L6.66667 0L13.3333 6.66667L6.66667 13.3333L5.47917 12.1667L10.1458 7.5Z"
+                                    fill="#454651" />
+                            </svg>
+
+                            <span> بازگشت به مرحله قبل </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end varify form -->
+
+    <script src="https://unpkg.com/imask"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
