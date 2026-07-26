@@ -367,23 +367,23 @@
         }
 
         function showPreview(file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        previewImage.src = e.target.result;
-        if (file.name.length > 15) {
-            fileName.textContent = file.name.slice(0, 12) + '…';
-        } else {
-            fileName.textContent = file.name;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+                if (file.name.length > 15) {
+                    fileName.textContent = file.name.slice(0, 12) + '…';
+                } else {
+                    fileName.textContent = file.name;
+                }
+                previewContainer.classList.remove('hidden');
+                textToggle.classList.add('hidden');
+                dropZone.classList.add('has-image');
+                uploadBtn.disabled = false;
+                uploadStatus.textContent = ` ${file.name.slice(0, 15)}${file.name.length > 10 ? '…' : ''} انتخاب شد`;
+                uploadStatus.className = 'text-xs text-center text-green-600 mt-2';
+            };
+            reader.readAsDataURL(file);
         }
-        previewContainer.classList.remove('hidden');
-        textToggle.classList.add('hidden');
-        dropZone.classList.add('has-image');
-        uploadBtn.disabled = false;
-        uploadStatus.textContent = `✅ ${file.name.slice(0, 15)}${file.name.length > 15 ? '…' : ''} انتخاب شد`;
-        uploadStatus.className = 'text-xs text-center text-green-600 mt-2';
-    };
-    reader.readAsDataURL(file);
-}
 
         function validateFile(file) {
             const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
@@ -420,7 +420,7 @@
                 body: formData,
             });
             if (!response.ok) {
-                throw new Error('آپلود ناموفق بود!');
+                throw new Error('آپلود درست انجام نشد');
             }
             const result = await response.json();
             return result;
@@ -444,11 +444,11 @@
                 uploadStatus.innerHTML = ' <strong>آپلود با موفقیت انجام شد!</strong>';
                 uploadStatus.className = 'text-xs text-center text-green-600 mt-2';
                 this.textContent = '✓ ارسال شد';
-                
             } catch (error) {
                 uploadStatus.textContent = ' خطا در آپلود ';
                 uploadStatus.className = 'text-xs text-center text-red-600 mt-2';
                 this.textContent = 'آپلود مجدد';
+
             }
             isUploading = false;
             this.disabled = false;
@@ -470,8 +470,6 @@
         resetBtn.addEventListener('click', function() {
             resetUpload();
         });
-
-
     </script>
 </body>
 </html>
