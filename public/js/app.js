@@ -146,17 +146,30 @@ document.querySelectorAll('.border-2').forEach(option => {
 // end MobileMenu
 
 // start 504words
-let Words = document.querySelector('#Words');
-let ShowMeaning =document.querySelector('#ShowMeaning');
-let Meaning = document.querySelector('#Meaning');
-let ShowMean = document.querySelector('#ShowMean');
+const Words = document.querySelector('#Words');
+const ShowMeaning = document.querySelector('#ShowMeaning');
+const Meaning = document.querySelector('#Meaning');
+const ShowMean = document.querySelector('#ShowMean');
 
-ShowMeaning.addEventListener("click", () => {
-    Words.classList.toggle("hidden");
-    Meaning.classList.toggle("hidden");
-});
-ShowMean.addEventListener("click", () => {
-    Words.classList.toggle("hidden");
-    Meaning.classList.toggle("hidden");
-});
+if (Words && Meaning && ShowMeaning && ShowMean) {
+    ShowMeaning.addEventListener("click", () => {
+        Words.classList.toggle("hidden");
+        Meaning.classList.toggle("hidden");
+    });
+
+    ShowMean.addEventListener("click", () => {
+        Words.classList.toggle("hidden");
+        Meaning.classList.toggle("hidden");
+    });
+}
 // end 504words
+
+// start NewWords
+    document.querySelector("#copyURL")?.addEventListener("click", copyURL);
+
+    function copyURL() {
+        const input = document.querySelector('input[value="https://fanoos.app/"]');
+        navigator.clipboard.writeText(input.value);
+        alert("لینکو کپی کردم برو حالشو ببر");
+    }
+// End NewWords

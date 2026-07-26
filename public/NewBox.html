@@ -211,7 +211,7 @@
             </div>
         </div>
         <!-- content -->
-        <div class="h-full w-full lg:w-12/15 flex flex-col overflow-hidden shadow">
+        <div class="h-full w-full lg:w-12/15 flex flex-col overflow-y-scroll shadow ">
             <div class=" h-20 flex justify-between items-center w-full bg-white shadow p-4">
                 <span class="font-free text-[20px] leading-[42px] tracking-normal text-right text-[#191C1E] mr-[40px] lg:mr-1 ">
                     ایجاد باکس جدید
@@ -223,13 +223,13 @@
                     <img src="imgs/Login2.png" alt="profilePicture" class="rounded-full size-[50px]">
                 </div>
             </div>
-            <div class="flex-1 flex items-center justify-center p-4 overflow-hidden">
-                <div class="bg-white rounded-2xl shadow-lg w-full max-w-4xl p-8">
+            <div class="flex-1 flex items-center justify-center p-4 overflow-y-scroll ">
+                <div class="bg-white rounded-2xl shadow-lg w-full max-w-4xl p-4 scale-z-95">
                     <div>
                         <h1 class="text-2xl font-bold text-gray-800 mb-4">سطح دسترسی</h1>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="border-2 border-[#4352A5] bg-[#eef0fa] rounded-xl p-4 cursor-pointer hover:border-[#4352A5] hover:bg-[#eef0fa] transition-all">
-                                <div class="flex items-start gap-3">
+                                <div class="flex items-start gap-1">
                                     <div>
                                         <h3 class="font-bold text-gray-800 text-base">خصوصی</h3>
                                         <p class="text-sm text-gray-500 mt-1">فقط شما می‌توانید این باکس‌را ببینید و مرور کنید.</p>
@@ -237,7 +237,7 @@
                                 </div>
                             </div>
                             <div class="border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-[#4352A5] hover:bg-[#f8f9ff] transition-all">
-                                <div class="flex items-start gap-3">
+                                <div class="flex items-start gap-1">
                                     <div>
                                         <h3 class="font-bold text-gray-800 text-base">عمومی</h3>
                                         <p class="text-sm text-gray-500 mt-1">قابل جستجو برای همه کاربران فانوس.</p>
@@ -247,25 +247,58 @@
                         </div>
                     </div>
                     <hr class="border-t border-gray-200 my-5">
-                    <div class="grid grid-cols-2 gap-5">
+                    <div class="grid grid-cols-2 gap-5 justify-center items-center">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">تصویر کار باکس</label>
-                            <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center h-[140px] flex items-center justify-center hover:border-[#4352A5] hover:bg-[#f8f9ff] transition-all cursor-pointer">
-                                <div class="flex flex-col items-center gap-2">
-                                    <i class="ri-upload-cloud-2-line text-4xl text-gray-400"></i>
-                                    <p class="text-sm font-medium text-gray-600">برای آپلود تصویر کلیک کنید</p>
-                                    <p class="text-xs text-gray-400">(PNG, JPG)</p>
+                            <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg" class="hidden" />
+                            <div id="dropZone" class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center h-[140px] flex items-center justify-center hover:border-[#4352A5] hover:bg-[#f8f9ff] transition-all cursor-pointer">
+                                <div class="flex flex-col items-center gap-2 w-full">
+                                    <div id="textToggle">
+                                        <i class="ri-upload-cloud-2-line text-4xl text-gray-400"></i>
+                                        <p class="text-sm font-medium text-gray-600">برای آپلود تصویر کلیک کنید</p>
+                                        <p class="text-xs text-gray-400">(PNG, JPG)</p>
+                                    </div>
+                                    <div id="previewContainer" class="hidden mt-3 w-full">
+                                        <div class="relative">
+                                            <img id="previewImage" src="#" alt="پیش‌نمایش" class="w-full max-h-[120px] object-contain rounded-lg bg-gray-100" />
+                                            <button id="removeBtn" class="absolute transition flex items-center justify-center text-sm">
+                                                
+                                            </button>
+                                        </div>
+                                        <p id="fileName" class="text-xs text-transparent mt-1 text-center"></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="mb-4">
-                                <label class="block text-sm font-medium text-gray-700 mb-1.5">نام باکس</label>
-                                <input type="text" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#4352A5] focus:ring-2 focus:ring-[#4352A5]/20 transition-all" placeholder="مثال: لغات ضروری 504" />
+                            <!-- navarPishraft -->
+                            <div id="progressWrap" class="hidden mt-3">
+                                <div class="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                    <div id="progressFill" class="h-full bg-[#4352A5] rounded-full transition-all duration-200" style="width: 0%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span id="progressPct" class="font-bold text-[#4352A5]">۰٪</span>
+                                    <span id="progressMsg">دارم ارسال میکنم</span>
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1.5">توضیحات باکس</label>
-                                <input type="text" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#4352A5] focus:ring-2 focus:ring-[#4352A5]/20 transition-all" placeholder="توضیح مختصری درباره محتوای این باکس بنویسید..." />
+                            <p id="uploadStatus" class="text-xs text-center text-gray-500 mt-2">هیچ فایلی انتخاب نشده</p>
+                            <div class="flex gap-2 mt-3 justify-center">
+                                <button id="resetBtn" class="px-4 py-1.5 border border-gray-300 rounded-xl text-sm hover:border-[#4352A5] hover:text-[#4352A5] transition">
+                                    ⟳ ریست
+                                </button>
+                                <button id="uploadBtn" disabled class="px-4 py-1.5 bg-[#4352A5] text-white rounded-xl text-sm hover:bg-[#36458b] transition disabled:opacity-50 disabled:cursor-not-allowed">
+                                    آپلود
+                                </button>
+                            </div>
+                        </div>
+                        <div  class=" border-r border-r-gray-300">
+                            <div class="pr-4">
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">نام باکس</label>
+                                    <input type="text" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#4352A5] focus:ring-2 focus:ring-[#4352A5]/20 transition-all" placeholder="مثال: لغات ضروری 504" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">توضیحات باکس</label>
+                                    <input type="text" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#4352A5] focus:ring-2 focus:ring-[#4352A5]/20 transition-all" placeholder="توضیح مختصری درباره محتوای این باکس بنویسید..." />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -274,7 +307,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">لینک اشتراک‌گذاری</label>
                         <div class="flex gap-3">
                             <input type="text" class="flex-1 border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50 text-gray-600" value="https://fanoos.app/" readonly />
-                            <button class="px-8 rounded-xl text-sm font-medium hover:bg-[#35448C] transition-all hover:shadow-lg hover:text-white hover:shadow-[#4352A5]/30 whitespace-nowrap border  border-neutral-500/30 ">
+                            <button id="copyURL" class="px-8 rounded-xl text-sm font-medium hover:bg-[#35448C] transition-all hover:shadow-lg hover:text-white hover:shadow-[#4352A5]/30 whitespace-nowrap border  border-neutral-500/30 ">
                                 کپی لینک
                             </button>
                         </div>
@@ -293,10 +326,152 @@
     <script src="https://unpkg.com/imask"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="js/app.js"></script>
-    
     <script>
+        let selectedFile = null;
+        let isUploading = false;
 
-        
+        const dropZone = document.getElementById('dropZone');
+        const textToggle = document.getElementById('textToggle');
+        const fileInput = document.getElementById('fileInput');
+        const previewContainer = document.getElementById('previewContainer');
+        const previewImage = document.getElementById('previewImage');
+        const fileName = document.getElementById('fileName');
+        const removeBtn = document.getElementById('removeBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const uploadStatus = document.getElementById('uploadStatus');
+        const progressWrap = document.getElementById('progressWrap');
+        const progressFill = document.getElementById('progressFill');
+        const progressPct = document.getElementById('progressPct');
+        const progressMsg = document.getElementById('progressMsg');
+
+        dropZone.addEventListener('click', function() {
+            if (isUploading) return;
+            fileInput.click();
+        });
+
+        function resetUpload() {
+            if (isUploading) return;
+            selectedFile = null;
+            fileInput.value = '';
+            previewContainer.classList.add('hidden');
+            textToggle.classList.remove('hidden');
+            dropZone.classList.remove('has-image');
+            uploadBtn.disabled = true;
+            uploadBtn.textContent = ' آپلود';
+            progressWrap.classList.add('hidden');
+            progressFill.style.width = '0%';
+            progressPct.textContent = '۰٪';
+            uploadStatus.textContent = 'هیچ فایلی انتخاب نشده';
+            uploadStatus.className = 'text-xs text-center text-gray-500 mt-2';
+        }
+
+        function showPreview(file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        previewImage.src = e.target.result;
+        if (file.name.length > 15) {
+            fileName.textContent = file.name.slice(0, 12) + '…';
+        } else {
+            fileName.textContent = file.name;
+        }
+        previewContainer.classList.remove('hidden');
+        textToggle.classList.add('hidden');
+        dropZone.classList.add('has-image');
+        uploadBtn.disabled = false;
+        uploadStatus.textContent = `✅ ${file.name.slice(0, 15)}${file.name.length > 15 ? '…' : ''} انتخاب شد`;
+        uploadStatus.className = 'text-xs text-center text-green-600 mt-2';
+    };
+    reader.readAsDataURL(file);
+}
+
+        function validateFile(file) {
+            const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+            if (!validTypes.includes(file.type)) {
+                uploadStatus.textContent = 'فقط PNG و JPG مجاز هستند';
+                uploadStatus.className = 'text-xs text-center text-red-600 mt-2';
+                return false;
+            }
+            const maxSize = 5 * 1024 * 1024;
+            if (file.size > maxSize) {
+                uploadStatus.textContent = ' حجم فایل باید کمتز از ۵ مگابایت باشد';
+                uploadStatus.className = 'text-xs text-center text-red-600 mt-2';
+                return false;
+            }
+            return true;
+        }
+
+        function updateProgress(percent, message, done = false) {
+            const clamped = Math.min(100, Math.max(0, percent));
+            progressFill.style.width = clamped + '%';
+            progressPct.textContent = Math.round(clamped) + '%';
+            if (done) {
+                progressMsg.innerHTML = ' ' + message;
+            } else {
+                progressMsg.textContent = message || 'در حال ارسال';
+            }
+        }
+
+        async function realUpload(file) {
+            const formData = new FormData();
+            formData.append('image', file);
+            const response = await fetch('http://daneshjooyar.com/posts', {
+                method: 'POST',
+                body: formData,
+            });
+            if (!response.ok) {
+                throw new Error('آپلود ناموفق بود!');
+            }
+            const result = await response.json();
+            return result;
+        }
+
+        uploadBtn.addEventListener('click', async function() {
+            if (!selectedFile || isUploading) return;
+            
+            isUploading = true;
+            this.disabled = true;
+            this.textContent = ' ارسال';
+            
+            progressWrap.classList.remove('hidden');
+            updateProgress(0, 'شروع آپلود');
+            
+            uploadStatus.textContent = 'در حال آپلود';
+            uploadStatus.className = 'text-xs text-center text-gray-500 mt-2';
+            
+            try {
+                const result = await realUpload(selectedFile);
+                uploadStatus.innerHTML = ' <strong>آپلود با موفقیت انجام شد!</strong>';
+                uploadStatus.className = 'text-xs text-center text-green-600 mt-2';
+                this.textContent = '✓ ارسال شد';
+                
+            } catch (error) {
+                uploadStatus.textContent = ' خطا در آپلود ';
+                uploadStatus.className = 'text-xs text-center text-red-600 mt-2';
+                this.textContent = 'آپلود مجدد';
+            }
+            isUploading = false;
+            this.disabled = false;
+        });
+
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                const file = this.files[0];
+                if (validateFile(file)) {
+                    selectedFile = file;
+                    showPreview(file);
+                } else {
+                    resetUpload();
+                }
+            }
+        });
+
+        // resetBTN
+        resetBtn.addEventListener('click', function() {
+            resetUpload();
+        });
+
+
     </script>
 </body>
 </html>
